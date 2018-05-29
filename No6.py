@@ -9,7 +9,7 @@ def SingleNRZ(a, conv):
 def MultiNRZ(a, conv):
     return conv - 2*a +1
 
-N = 15
+N = 1024
 t = np.arange(0, N)
 a = np.array([])
 conv = np.zeros(N)
@@ -24,5 +24,14 @@ print conv
 F = np.fft.fft(conv)
 F=np.abs(F)**2
 
+plt.subplot(2, 1, 1)
+plt.title('origin')
+plt.ylim(-1.2, 1.2)
+plt.xlim(0, N)
+plt.bar(t, conv, align = "center")
+
+
+plt.subplot(2, 1, 2)
 plt.plot(t, F)
+
 plt.show()
